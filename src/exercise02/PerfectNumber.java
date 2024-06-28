@@ -3,7 +3,8 @@ package exercise02;
 public class PerfectNumber {
 	static boolean checkNum (int num) {
 		int sum = 0;
-		for (int i = 1; i < num; i++) {
+		// use num / 2 to reduce for loop time
+		for (int i = 1; i < num / 2; i++) {
 			if (num % i == 0) {
 				sum += i;
 			}

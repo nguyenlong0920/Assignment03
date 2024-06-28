@@ -2,19 +2,22 @@ package exercise02;
 
 public class PerfectNumber {
 	static boolean checkNum (int num) {
-		int sum = 0;
-		// use num / 2 to reduce for loop time
-		for (int i = 1; i < num / 2; i++) {
-			if (num % i == 0) {
-				sum += i;
-			}
-		}
-		return sum == num;
+		int sum = 1; 
+        int sqrt = (int) Math.sqrt(num);
+        
+        for (int i = 2; i <= sqrt; i++) {
+            if (num % i == 0) {
+                sum += i;
+                if (i != num / i) {
+                    sum += num / i;
+                }
+            }
+        }
+        return num != 1 && sum == num;
 	}
 	
 	public static void main(String[] args) {
-		// 0 is not a perfect number
-		for (int i = 1; i <= 1000; i++) {
+		for (int i = 0; i <= 1000000; i++) {
 			if (checkNum(i)) {
 				System.out.println(i);
 			}
